@@ -1,3 +1,4 @@
 torrc-defaults
-MakeFile
 main.exe
+.vscode
+config

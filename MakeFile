@@ -1,0 +1,4 @@
+CXX = g++
+
+build:
+	$(CXX) -o main.exe main.cpp
