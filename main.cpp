@@ -15,6 +15,7 @@ std::string ReadLocationFileTor(std::vector<std::string> data);
 std::vector<std::string> ReadFileTorrc(std::string TorFileLocation);
 bool WriteFileTorrc(std::string LocationFileTor, std::vector<std::string> dataTorrc);
 
+float VERSION = 0.4;
 
 int main(int argc, char* argv[])
 {
@@ -22,9 +23,13 @@ int main(int argc, char* argv[])
     for(int i = 1; i < argc; ++i)
     {
         std::string line = argv[i];
-        if(line == "--help" || line == "-h")
+        if(line == "--version" || line == "-v")
         {
-            std::cout << "Yep" << std::endl;
+            std::cout << "torrc_setup : " << " Version " << VERSION << std::endl;
+            return 0;
+        } else if(line == "--help" || line == "-h")
+        {
+            std::cout << "Torrc Setup - A program that asks you to insert bridges, and then writes it to a torrc file. " << std::endl;
             return 0;
         }
     }

@@ -1,4 +1,5 @@
 torrc-defaults
-main.exe
+torrc_setup_x64.exe
+torrc_setup_x32.exe
 .vscode
 config
