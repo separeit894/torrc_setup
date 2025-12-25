@@ -8,14 +8,19 @@ namespace fs = std::filesystem;
 
 bool IsThereFileOrNot();
 bool CreateFile(std::string TorFileLocation);
-bool ReadFile(std::vector<std::string> &data);
+bool ReadFileConfig(std::vector<std::string> &data);
 bool WriteMost(std::string TorFileLocation, std::vector<std::string> NewMost);
 std::string LocationFileTor();
 std::string ReadLocationFileTor(std::vector<std::string> data);
 std::vector<std::string> ReadFileTorrc(std::string TorFileLocation);
 bool WriteFileTorrc(std::string LocationFileTor, std::vector<std::string> dataTorrc);
+void CreateFileConfig();
+void SetNewPathTorrc(std::vector<std::string> &data);
+void WriteNewPathTorrc(std::vector<std::string> const data);
 
-float VERSION = 0.4;
+
+float VERSION = 0.5;
+std::vector<std::string> data;
 
 int main(int argc, char* argv[])
 {
@@ -25,33 +30,25 @@ int main(int argc, char* argv[])
         std::string line = argv[i];
         if(line == "--version" || line == "-v")
         {
-            std::cout << "torrc_setup : " << " Version " << VERSION << std::endl;
+            std::cout << "torrc_setup Version: "  << VERSION << std::endl;
             return 0;
-        } else if(line == "--help" || line == "-h")
+        } else if(line == "--new-path-torrc") {
+            ReadFileConfig(data);
+            SetNewPathTorrc(data);
+            WriteNewPathTorrc(data);
+
+            std::cout << "The path to the torrc file has been changed " << std::endl;
+            return 0;
+        } 
+        else if(line == "--help" || line == "-h")
         {
-            std::cout << "Torrc Setup - A program that asks you to insert bridges, and then writes it to a torrc file. " << std::endl;
+            std::cout << "Torrc Setup - A program that asks you to insert bridges, and then writes it to a torrc file. \n" <<
+            "Examples: \n" << "torrc_setup.exe -h " <<  std::endl;
             return 0;
         }
     }
     
-    std::string TorFileLocation;
-    if(fs::exists("config") && fs::is_directory("config"))
-    {
-        if(IsThereFileOrNot())
-        {
-            std::cout << "file \"config.txt\" there" << std::endl;
-        } else {
-            std::cout << "file \"config.txt\" not there! Create..." << std::endl;
-            TorFileLocation = LocationFileTor();
-            CreateFile(TorFileLocation);
-        }
-    }
-    else {
-        fs::create_directory("config");
-        // std::cout << "directory create!!" << std::endl;
-        TorFileLocation = LocationFileTor();
-        CreateFile(TorFileLocation);
-    }
+    CreateFileConfig();
 
     std::vector<std::string> NewMost;
     std::string line;
@@ -62,8 +59,8 @@ int main(int argc, char* argv[])
         NewMost.push_back("Bridge " + line);
     }
 
-    std::vector<std::string> data;
-    if(ReadFile(data))
+    
+    if(ReadFileConfig(data))
     {
         std::cout << "file read" << std::endl;
     } else
@@ -115,7 +112,7 @@ bool CreateFile(std::string TorFileLocation)
 
 
 
-bool ReadFile(std::vector<std::string> &data_file)
+bool ReadFileConfig(std::vector<std::string> &data_file)
 {
     std::ifstream file;
     file.open("config/config.txt");
@@ -232,4 +229,61 @@ bool WriteFileTorrc(std::string LocationFileTor, std::vector<std::string> dataTo
         std::cerr << "Failed to write data files to Torrc" << std::endl;
         return false;
     }
+}
+
+void CreateFileConfig()
+{
+    std::string TorFileLocation;
+    if(fs::exists("config") && fs::is_directory("config"))
+    {
+        if(IsThereFileOrNot())
+        {
+            std::cout << "file \"config.txt\" there" << std::endl;
+        } else {
+            std::cout << "file \"config.txt\" not there! Create..." << std::endl;
+            TorFileLocation = LocationFileTor();
+            CreateFile(TorFileLocation);
+        }
+    }
+    else {
+        fs::create_directory("config");
+        TorFileLocation = LocationFileTor();
+        CreateFile(TorFileLocation);
+    }
+}
+
+void SetNewPathTorrc(std::vector<std::string> &data)
+{
+    size_t pos = data[0].find(":");
+    std::string location;
+    std::string NewLocation;
+    if(pos != std::string::npos)
+    {
+        location = data[0].substr(0, ++pos);
+        std::cin >> NewLocation;
+        location += NewLocation;
+        data[0] = location;
+    } else
+    {
+        std::cerr << "Not find torrc location" << std::endl;
+    }
+
+    
+}
+
+
+void WriteNewPathTorrc(std::vector<std::string> const data)
+{
+    std::ofstream fileOpenWrite("config/config.txt");
+    if(fileOpenWrite.is_open())
+    {
+        for(std::string line : data)
+        {
+            fileOpenWrite << line << std::endl;
+        }
+    } else
+    {
+        std::cerr << "Error" << std::endl;
+    }
+    fileOpenWrite.close();
 }
