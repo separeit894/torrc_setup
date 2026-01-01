@@ -5,4 +5,5 @@ torrc_setup_x32.exe
 config
 main
 torrc_setup.desktop
-
+torrc_setup.exe
+torrc_setup
