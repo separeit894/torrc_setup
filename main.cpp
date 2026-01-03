@@ -1,10 +1,10 @@
 #include <iostream>
-#include "CreateFileConfigAndRead/source.h"
-#include "ReadFile/source.h"
-#include "SetPathToTorrc/source.h"
-#include "WriteFile/source.h"
+#include "CreateFileConfigAndRead/CreateFileConfigAndRead.h"
+#include "ReadFile/ReadFile.h"
+#include "SetPathToTorrc/SetPathToTorrc.h"
+#include "WriteFile/WriteFile.h"
 
-float VERSION = 0.6;
+float VERSION = 0.7;
 std::vector<std::string> data;
 
 int main(int argc, char* argv[])

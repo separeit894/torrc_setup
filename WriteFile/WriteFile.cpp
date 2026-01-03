@@ -1,5 +1,5 @@
-#include "source.h"
-#include "..\ReadFile\source.h"
+#include "WriteFile.h"
+#include "../ReadFile/ReadFile.h"
 
 bool WriteMost(std::string TorFileLocation, std::vector<std::string> NewMost)
 {
