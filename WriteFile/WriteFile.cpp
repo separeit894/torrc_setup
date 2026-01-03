@@ -1,6 +1,7 @@
 #include "WriteFile.h"
 #include "../ReadFile/ReadFile.h"
 
+
 bool WriteMost(std::string TorFileLocation, std::vector<std::string> NewMost)
 {
     std::vector<std::string> dataTorrc = ReadFileTorrc(TorFileLocation);
