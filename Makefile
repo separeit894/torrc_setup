@@ -4,9 +4,9 @@ all:
 	@echo $(OS)
 
 ifeq ($(OS), Windows_NT)
-	$(CXX_COMPILER) -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp
+	$(CXX_COMPILER) -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp CreateBackupTorrcFile/CreateBackupTorrcFile.cpp
 else
 	@echo Linux
-	$(CXX_COMPILER) -o torrc_setup main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp
+	$(CXX_COMPILER) -o torrc_setup main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp CreateBackupTorrcFile/CreateBackupTorrcFile.cpp
 endif
 

@@ -29,12 +29,12 @@ make
 
 #### Через g++
 ```bash
-g++ -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp
+g++ -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp CreateBackupTorrcFile/CreateBackupTorrcFile.cpp
 ```
 
 #### Через clang++
 ```bash
-clang++ -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp
+clang++ -o torrc_setup.exe main.cpp CreateFileConfigAndRead/CreateFileConfigAndRead.cpp ReadFile/ReadFile.cpp SetPathToTorrc/SetPathToTorrc.cpp WriteFile/WriteFile.cpp CreateBackupTorrcFile/CreateBackupTorrcFile.cpp
 ```
 
 ### Запуск скрипта и как им пользоваться

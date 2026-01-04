@@ -1,5 +1,6 @@
 #include "ReadFile.h"
 
+
 std::vector<std::string> ReadFileTorrc(std::string TorFileLocation)
 {
     std::ifstream fileTor;

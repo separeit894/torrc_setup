@@ -1,11 +1,14 @@
 #include <iostream>
+#include <string>
 #include "CreateFileConfigAndRead/CreateFileConfigAndRead.h"
 #include "ReadFile/ReadFile.h"
 #include "SetPathToTorrc/SetPathToTorrc.h"
 #include "WriteFile/WriteFile.h"
 
-float VERSION = 0.7;
+float VERSION = 0.8;
 std::vector<std::string> data;
+
+std::string equalSigns(40, '=');
 
 int main(int argc, char* argv[])
 {
@@ -21,7 +24,6 @@ int main(int argc, char* argv[])
             ReadFileConfig(data);
             SetNewPathTorrc(data);
             WriteNewPathTorrc(data);
-
             std::cout << "The path to the torrc file has been changed " << std::endl;
             return 0;
         } 
@@ -47,10 +49,14 @@ int main(int argc, char* argv[])
     
     if(ReadFileConfig(data))
     {
-        std::cout << "file read" << std::endl;
+        std::cout << std::endl << equalSigns << std::endl <<
+        "file read config/config.txt" << std::endl
+        << equalSigns << std::endl;
     } else
     {
-        std::cerr << "file not read" << std::endl;
+        std::cerr << std::endl << equalSigns << std::endl << 
+        "file not read config/config.txt" 
+        << equalSigns << std::endl;
         return -1;
     }
 

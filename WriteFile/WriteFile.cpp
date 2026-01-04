@@ -1,10 +1,12 @@
 #include "WriteFile.h"
 #include "../ReadFile/ReadFile.h"
+#include "../CreateBackupTorrcFile/CreateBackupTorrcFile.h"
 
 
 bool WriteMost(std::string TorFileLocation, std::vector<std::string> NewMost)
 {
     std::vector<std::string> dataTorrc = ReadFileTorrc(TorFileLocation);
+    CreateBackupFileTorrc(TorFileLocation, dataTorrc);
     int NumStrStartBridge = 0;
     std::cout << "Data size vector : " << dataTorrc.size() << std::endl;
     for(int i = 0; i < dataTorrc.size(); i++)
