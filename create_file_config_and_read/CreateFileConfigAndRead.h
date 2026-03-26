@@ -7,7 +7,7 @@
 #include <fstream>
 #include <filesystem>
 #include <vector>
-#include "../SetPathToTorrc/SetPathToTorrc.h"
+#include "../set_path_to_torrc/SetPathToTorrc.h"
 
 namespace fs = std::filesystem;
 

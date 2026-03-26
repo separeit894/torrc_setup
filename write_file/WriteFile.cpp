@@ -1,6 +1,6 @@
 #include "WriteFile.h"
-#include "../ReadFile/ReadFile.h"
-#include "../CreateBackupTorrcFile/CreateBackupTorrcFile.h"
+#include "../read_file/ReadFile.h"
+#include "../create_backup_torrc_file/CreateBackupTorrcFile.h"
 
 
 bool WriteMost(std::string TorFileLocation, std::vector<std::string> NewMost)

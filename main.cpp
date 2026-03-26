@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "CreateFileConfigAndRead/CreateFileConfigAndRead.h"
-#include "ReadFile/ReadFile.h"
-#include "SetPathToTorrc/SetPathToTorrc.h"
-#include "WriteFile/WriteFile.h"
+#include "create_file_config_and_read/CreateFileConfigAndRead.h"
+#include "read_file/ReadFile.h"
+#include "set_path_to_torrc/SetPathToTorrc.h"
+#include "write_file/WriteFile.h"
 
 float VERSION = 0.8;
 std::vector<std::string> data;
