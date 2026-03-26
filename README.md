@@ -1,5 +1,7 @@
 # Torrc Setup
 
+![C++ Standard](assets/c++_standard_version.svg)
+
 Скрипт, сделанный для того чтобы легко изменять мосты в файле torrc
 
 ## Содержание
