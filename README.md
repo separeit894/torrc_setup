@@ -45,6 +45,11 @@ clang++ -o torrc_setup.exe main.cpp create_file_config_and_read/CreateFileConfig
 ### Запуск скрипта и как им пользоваться
 
 #### Запуск скрипта
+Чтобы на Windows не требовались права администратора, введите команду в терминале
+
+```text
+set __COMPAT_LAYER=RunAsInvoker
+```
 
 ```bash
 torrc_setup.exe
