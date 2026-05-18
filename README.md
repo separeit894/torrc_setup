@@ -1,6 +1,7 @@
 # Torrc Setup
 
-![C++ Standard](assets/c++_standard_version.svg)
+![C++ Standard](assets/c++_standard_version.svg) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/separeit894/torrc_setup/total?label=GitHub%20Downloads&color=%230099ff)
+
 
 Скрипт, сделанный для того чтобы легко изменять мосты в файле torrc
 
